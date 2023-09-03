@@ -1,0 +1,11 @@
+.navbar.navbar-expand-lg {
+  background-color: rgb(255, 255, 255) !important;
+  box-shadow: 2px 2px 3px 1px rgba(0, 37, 187, 0.2);
+}
+
+.navbar.navbar-expand-lg .nav-item.dropdown a i {
+  font-size: 30px;
+}
+.navbar.navbar-expand-lg .dropdown a::after {
+  display: none;
+}

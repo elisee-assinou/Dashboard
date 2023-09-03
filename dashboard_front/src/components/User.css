@@ -1,0 +1,68 @@
+
+.user_wrapper {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 1rem 5rem;
+  justify-content: space-between;
+}
+
+
+.user_wrapper {
+    animation-duration: 2s;
+    animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  
+
+
+
+
+
+
+
+.user_wrapper .user_img {
+  margin-right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #bbbbbb;
+}
+
+.user_wrapper .user_info {
+  margin-right: 10px;
+}
+
+.btn_action {
+  display: flex;
+  justify-content: space-between;
+}
+.first_line {
+  margin-bottom: 5px;
+  font-weight: bolder;
+  font-size: small;
+}
+.second_line {
+  font-weight: 400;
+  font-size: small;
+}
+.preferences {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user_btn {
+  width: 5rem;
+}
