@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, Navigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function EditUser(props) {
   const [currentUserId, setCurrentUserId] = useState("");
@@ -52,9 +52,12 @@ function EditUser(props) {
     }
   }
 
+
+  const navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
+    
 
     try {
       console.log(currentUserId)
@@ -71,7 +74,7 @@ function EditUser(props) {
       }
       const data = await response.json();
       setUpdatedResponse(data);
-      return  <Navigate replace to="/dashboard/users" />;
+      navigate("/dashboard/users");
     } catch (error) {
       console.log(error);
     }

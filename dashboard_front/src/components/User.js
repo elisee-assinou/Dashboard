@@ -1,25 +1,27 @@
 import { Navigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "./User.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function User() {
   const [users, setUsers] = useState([]);
   const [deleteResponse, setDeleteResponse] = useState([]);
 
+
+  const navigate = useNavigate();
+
   async function deleteUser(params) {
-    console.log("click");
+
     const url = `http://192.168.5.176:3000/user/${params}`;
 
     fetch(url, { method: "DELETE" })
       .then((response) => response.json())
       .then((data) => {
         setDeleteResponse(data);
+        window.location.reload()
       })
       .catch((error) => console.log(error));
-
-    users.splice(users.findIndex(({ user }) => user.id === params));
-   return  <Navigate replace to="/dashboard/users" />;
+    
   }
 
   const url = "http://192.168.5.176:3000/user";

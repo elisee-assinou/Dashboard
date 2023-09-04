@@ -108,7 +108,7 @@ function Navbar() {
               </li>
               {isAuthenticated && admin ? (
                 <li className="flex items-center">
-                  <Link to="/dashboard" className="text-white hover:underline">
+                  <Link to="http://localhost:3002/dashboard/users" className="text-white hover:underline">
                     <FontAwesomeIcon icon={faTh} className="mr-2" /> Dashboard
                   </Link>
                 </li>
