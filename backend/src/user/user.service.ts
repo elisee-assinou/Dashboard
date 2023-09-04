@@ -26,7 +26,7 @@ export class UserService {
     // Vérification si l'e-mail est déjà utilisé
     const existingUser = await this.userModel.findOne({ email: body.email });
     if (existingUser) {
-      throw new ConflictException('Cet e-mail est déjà enregistré.');
+      return {message:'Cet e-mail est déjà utilisé.'};
     }
 
     const hashedPassword = await bcrypt.hash(body.password, 10);
@@ -53,7 +53,8 @@ export class UserService {
       `Cliquez sur ce lien pour activer votre compte : ${activationLink}`,
     );
 
-    return newUser.save();
+    newUser.save();
+    return {message:"inscription réussie, veuillez vérifier votre email pour valider votre compte"}
   }
 
 
@@ -63,7 +64,7 @@ export class UserService {
     if (user) {
       const isPasswordCorrect = await bcrypt.compare(password, user.password);
       if (!isPasswordCorrect) {
-        return "Le mot de passe est incorrect"; // Mot de passe incorrect
+        return { message: "Le mot de passe est incorrect" }; // Mot de passe incorrect
       }
 
       if (user.isVerified == false) {
@@ -77,6 +78,9 @@ export class UserService {
 
       }
     }
+    else{
+      return { message: "Utilisateur inexistant" };
+    }
   }
 
   async logoutUser(userId: string): Promise<User | any> {
@@ -88,7 +92,7 @@ export class UserService {
         return "Déconnexion réussie"
       }
       else {
-        return "Vous n'êtes pas connecté"
+        return { message: "Vous n'êtes pas connecté" };
       }
     }
 
@@ -173,14 +177,14 @@ export class UserService {
     // console.log(userData)
     // console.log(user)
     if (!user) {
-      return "L'utilisateur n'existe pas";
+      return { message: "L'utilisateur n'existe pas" };
     }
 
     const isPasswordCorrect = await bcrypt.compare(userData.password, user.password);
     console.log(isPasswordCorrect)
 
     if (!isPasswordCorrect) {
-      return "Mot de passe incorrect"; // Mot de passe incorrect
+      return  { message: "Mot de passe incorrect" }; // Mot de passe incorrect
     }
     if (userData.new_password === userData.new_password_conf) {
       const hashedPassword = await bcrypt.hash(userData.new_password, 10);
@@ -194,7 +198,7 @@ export class UserService {
       // console.log(user)
       return { message: "L'utilisateur a bien été modifié", user };
     } else {
-      return "Les mots de passe ne sont pas identique "
+      return { message: "Les mots de passe ne sont pas identique " }
     }
 
   }

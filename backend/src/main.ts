@@ -13,7 +13,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   // Configuration CORS
  const corsOptions: CorsOptions = {
-  origin: ['http://localhost:3001','http://localhost:3000'],// Remplacez par l'URL de votre application React
+  origin: ['http://localhost:3001','http://localhost:3000','http://localhost:3002','http://192.168.5.159:3000'],// Remplacez par l'URL de votre application React
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // Si vous avez besoin de gérer les cookies
   };

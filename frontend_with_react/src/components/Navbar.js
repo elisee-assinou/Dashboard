@@ -1,7 +1,7 @@
 // Navbar.js
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faTh, faBell, faCog, faBars, faTimes, faSignInAlt, faUserPlus, faSignOutAlt, } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faTh, faCog, faBars, faTimes, faSignInAlt, faUserPlus, faSignOutAlt, } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar() {
@@ -119,11 +119,7 @@ function Navbar() {
                   <FontAwesomeIcon icon={faCog} className="mr-2" /> Mes Services
                 </Link>
               </li>
-              <li className="flex items-center">
-                <Link to="/notifications" className="text-white hover:underline">
-                  <FontAwesomeIcon icon={faBell} className="mr-2" /> Notifications
-                </Link>
-              </li>
+              
             </>
           ) : null}
 

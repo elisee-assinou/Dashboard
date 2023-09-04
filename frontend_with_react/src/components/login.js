@@ -20,11 +20,14 @@ function LoginForm() {
         },
         body: JSON.stringify({ email, password }),
       });
+      console.log(response.ok);
 
       if (response.ok) {
+
         
         const data = await response.json();
-        console.log(data);
+        if (data.message==='Connexion réussie'){
+          console.log(data);
         const authToken = data.token;
         const userid = data.userId;
 
@@ -34,12 +37,19 @@ function LoginForm() {
 
         // Rediriger l'utilisateur vers la page d'accueil
         navigate('/');
+        }
+        else{
+          alert(data.message);
+        }
+
+        
       } else {
         // Gérer les erreurs d'authentification ici
-        console.error('Erreur lors de la connexion : Statut HTTP non OK');
+        alert("Erreur verifier vos informations");
       }
     } catch (error) {
-      console.error('Erreur lors de la connexion : ', error);
+      console.log(error);
+      alert('Erreur lors de la connexion : ', error);
     }
   };
 

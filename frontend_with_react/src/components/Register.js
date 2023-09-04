@@ -26,9 +26,10 @@ function RegistrationForm() {
                 });
         
                 if (response.ok) {
-                    // Registration was successful, handle success here
-                    alert('Registration successful, check your email to validate your account');
-                    window.location.href ='/login'
+                    const data = await response.json();
+                    
+                    alert(data.message);
+                    window.location.href ='/register'
 
                 } else {
                     // Registration failed, handle errors here

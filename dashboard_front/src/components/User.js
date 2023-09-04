@@ -12,7 +12,7 @@ function User() {
 
   async function deleteUser(params) {
 
-    const url = `http://192.168.5.176:3000/user/${params}`;
+    const url = `http://localhost:3001/user/${params}`;
 
     fetch(url, { method: "DELETE" })
       .then((response) => response.json())
@@ -24,7 +24,7 @@ function User() {
     
   }
 
-  const url = "http://192.168.5.176:3000/user";
+  const url = "http://localhost:3001/user";
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())

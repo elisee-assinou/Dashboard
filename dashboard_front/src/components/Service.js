@@ -4,7 +4,7 @@ import "./Service.css";
 function Service() {
   const [services, setServices] = useState([]);
 
-  const url = "http://192.168.5.176:3000/services";
+  const url = "http://localhost:3001/services";
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())

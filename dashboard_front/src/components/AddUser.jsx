@@ -21,7 +21,7 @@ function AddUser() {
   function handleSubmit(e) {
     e.preventDefault();
     
-    fetch("http://192.168.5.176:3000/user/signup", {
+    fetch("http://localhost:3001/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

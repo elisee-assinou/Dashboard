@@ -40,7 +40,7 @@ function EditUser(props) {
     setCurrentUserId(the_path_id);
 
     try {
-      const url = `http://192.168.5.176:3000/user/${the_path_id}`;
+      const url = `http://localhost:3001/user/${the_path_id}`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error("La récupération des données a échoué");
@@ -61,7 +61,7 @@ function EditUser(props) {
 
     try {
       console.log(currentUserId)
-      const url = `http://192.168.5.176:3000/user/${currentUserId}`;
+      const url = `http://localhost:3001/user/${currentUserId}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {
